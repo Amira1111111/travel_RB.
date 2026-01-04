@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Путешествия по Башкортостану</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" type="text/css" href="hexagons.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать в мир путешествий по Башкортостану</h1>
+    </header>
+        <li><a href="/ufa">Уфа</a></li>
+        <li><a href="/sterlitamak">Стерлитамак</a></li>
+        <li><a href="/salavat">Салават</a></li>
+        <li><a href="/neftekamsk">Нефтекамск</a></li>
+        <li><a href="/oktyabrsky">Октябрьский</a></li>
+        <li><a href="/tuimazy">Туймазы</a></li>
+        <li><a href="/beloretsk">Белорецк</a></li>
+        <li><a href="/ishimbay">Ишимбай</a></li>
+        <li><a href="/sibay">Сибай</a></li>
+        <li><a href="/kumertau">Кумертау</a></li>
+        <li><a href="/belebey">Белебей</a></li>
+        <li><a href="/meleuz">Мелеуз</a></li>
+        <li><a href="/birsk">Бирск</a></li>
+        <li><a href="/uchaly">Учалы</a></li>
+        <li><a href="/blagovechensk">Благовещенск</a></li>
+        <li><a href="/dyurtyuli">Дюртюли</a></li>
+        <li><a href="/yanaul">Янаул</a></li>
+        <li><a href="/davlekanovo">Давлеканово</a></li>
+        <li><a href="/baymak">Баймак</a></li>
+        <li><a href="/meshgore">Межгорье</a></li>
+        <li><a href="/agidel">Агидель</a></li>
+    <ul class="city-list">
+
+    </ul>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; {{ year }} Путешествия по Башкортостану.</p>
+            <div class="footer-links">
+                <a href="/about">О нас</a>
+                <a href="/privacy">Политика конфиденциальности</a>
+            </div>
+            <div class="social-icons">
+                <a href="#" title="VK">📘</a>
+                <a href="#" title="Telegram">💬</a>
+                <a href="#" title="Instagram">📷</a>
+            </div>
+        </div>
+    </footer>
+
+   
+</body>
+ return render_template_string(template, year=current_year) 
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Путешествия по Башкортостану</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<body>
+    <header>
+        <h1>Добро пожаловать в Башкортостан! 🌄</h1>
+        <p>Откройте красоту регионов, городов и маршрутов.</p>
+    </header>
+
+
+    </body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ city_data['name'] }} - Путешествия по Башкортостану</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ city_data['name'] }}</h1>
+    </header>
+    <main>
+        <h2>Интересные места:</h2>
+        <ul>
+            {% for place in city_data['places'] %}
+                <li>
+                    <img src="{{ place['image'] }}" alt="{{ place['name'] }}" width="200">
+                    <p>{{ place['name'] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>© {{ year }} Путешествия по Башкортостану</p>
+    </footer>
+</body>
+</html>
+
+
+
