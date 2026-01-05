@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Путешествия по Башкортостану</title>
+    <title>{{ city_name }}</title> 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <body>
     <header>
+        <h1>Добро пожаловать в {{ city_name }}!</h1>
+        <p>Это страница о городе {{ city_name }}.</p>
         <h1>Добро пожаловать в Башкортостан! 🌄</h1>
         <p>Откройте красоту регионов, городов и маршрутов.</p>
     </header>
