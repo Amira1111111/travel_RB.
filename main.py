@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string
+from flask import Flask, render_template
 from datetime import datetime
 
 current_year = datetime.now().year
@@ -193,52 +193,57 @@ def generate_city_template(city_key):
     """
     return template
 
+
+
+
+
 @app.route('/ufa')
 def ufa():
-    return render_template_string(generate_city_template('ufa'))
+    return render_template(generate_city_template('ufa'))
 
 @app.route('/durtuli')
 def durtuli():
-    return render_template_string(generate_city_template('durtuli'))
+    return render_template(generate_city_template('durtuli'))
 
 @app.route('/sterlitamak')
 def sterlitamak():
-    return render_template_string(generate_city_template('sterlitamak'))
+    return render_template(generate_city_template('sterlitamak'))
 
 @app.route('/salavat')
 def salavat():
-    return render_template_string(generate_city_template('salavat'))
+    return render_template(generate_city_template('salavat'))
 
 @app.route('/oktyabrsky')
 def oktyabrsky():
-    return render_template_string(generate_city_template('oktyabrsky'))
+    return render_template(generate_city_template('oktyabrsky'))
 
 @app.route('/neftyekamsk')
 def neftyekamsk():
-    return render_template_string(generate_city_template('neftyekamsk'))
+    return render_template(generate_city_template('neftyekamsk'))
 
 @app.route('/beloretsk')
 def beloretsk():
-    return render_template_string(generate_city_template('beloretsk'))
+    return render_template(generate_city_template('beloretsk'))
 
 @app.route('/ishimbay')
 def ishimbay():
-    return render_template_string(generate_city_template('ishimbay'))
+    return render_template(generate_city_template('ishimbay'))
 
 @app.route('/kumertau')
 def kumertau():
-    return render_template_string(generate_city_template('kumertau'))
+    return render_template(generate_city_template('kumertau'))
 
 @app.route('/mezygorye')
 def mezgorye():
-    return render_template_string(generate_city_template('mezygorye'))
+    return render_template(generate_city_template('mezygorye'))
 
 @app.route('/agidel')
 def agidel():
-    return render_template_string(generate_city_template('agidel'))
+    return render_template(generate_city_template('agidel'))
 
 if __name__ == '__main__':
     print("Сервер запускается по адресу: http://127.0.0.1:5000/")
     app.run(debug=True, host='127.0.0.1', port=5000)
+
 
 
