@@ -169,6 +169,7 @@ def generate_city_template(city_key):
     city = cities[city_key]
     places_html = "".join(f"<li><img src='{place['image']}' alt='{place['name']}' style='width:200px;'> {place['name']}</li>" for place in city['places'])
     template = f"""
+    
     <!DOCTYPE html>
     <html lang="ru">
     <head>
@@ -244,6 +245,7 @@ def agidel():
 if __name__ == '__main__':
     print("Сервер запускается по адресу: http://127.0.0.1:5000/")
     app.run(debug=True, host='127.0.0.1', port=5000)
+
 
 
 
