@@ -136,17 +136,17 @@ def home():
         </header>
         <h1>Выберите город, чтобы увидеть интересные места!</h1>
         <ul class="city-list">
-            <li><a href="/ufa">Уфа</a></li>
-            <li><a href="/durtuli">Дюртюли</a></li>
-            <li><a href="/sterlitamak">Стерлитамак</a></li>
-            <li><a href="/salavat">Салават</a></li>
-            <li><a href="/oktyabrsky">Октябрьский</a></li>
-            <li><a href="/neftyekamsk">Нефтекамск</a></li>
-            <li><a href="/beloretsk">Белорецк</a></li>
-            <li><a href="/ishimbay">Ишимбай</a></li>
-            <li><a href="/kumertau">Кумертау</a></li>
-            <li><a href="/mezygorye">Межгорье</a></li>
-            <li><a href="/agidel">Агидель</a></li>
+            <li><a href="ufa">Уфа</a></li>
+            <li><a href="durtuli">Дюртюли</a></li>
+            <li><a href="sterlitamak">Стерлитамак</a></li>
+            <li><a href="salavat">Салават</a></li>
+            <li><a href="oktyabrsky">Октябрьский</a></li>
+            <li><a href="neftyekamsk">Нефтекамск</a></li>
+            <li><a href="beloretsk">Белорецк</a></li>
+            <li><a href="ishimbay">Ишимбай</a></li>
+            <li><a href="kumertau">Кумертау</a></li>
+            <li><a href="mezygorye">Межгорье</a></li>
+            <li><a href="agidel">Агидель</a></li>
         </ul>
 
         <footer>
@@ -238,6 +238,7 @@ def kumertau():
 @app.route('/agidel')
 def agidel():
     return render_template(generate_city_template('agidel'))
+
 
 
 
