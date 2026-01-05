@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>{city['name']}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    </head>
+    <body>
+        <header>
+            <h1>Добро пожаловать в мир путешествий по Башкортостану!</h1>
+
+            'ufa': {
+                    'name': 'Уфа',
+                    'places': [
+                        {'name': 'Башкирский государственный театр оперы и балета', 'image': 'https://upload.wikimedia.org/wikipedia/commons/f/f8/%D0%91%D0%B0%D1%88%D0%BA%D0%B8%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%BE%D0%BF%D0%B5%D1%80%D1%8B_%D0%B8_%D0%B1%D0%B0%D0%BB%D0%B5%D1%82%D0%B0.JPG'},
+                        {'name': 'Парк Победы', 'image': 'https://upload.wikimedia.org/wikipedia/commons/3/3b/%D0%9F%D0%B0%D1%80%D0%BA_%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B_%28%D0%B0%D0%BB%D0%BB%D0%B5%D1%8F%29.jpg'},
+                        {'name': 'Площадь Салавата Юлаева', 'image': 'https://ufa.richotels.ru/97.jpg'},
+                        {'name': 'Парк mega', 'image': 'https://mega.ru/upload/medialibrary/405/40550217110e77448f078bb2a5a562da.jpg'},
+                        {'name': 'Аллея современной скульптуры ArtTerria', 'image': 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/81/fc/bf/caption.jpg?w=1400&h=-1&s=1'},
+                        {'name': 'Театральный сквер, фонтан «Семью девушек»', 'image': 'https://museum-ufa.ru/wp-content/uploads/2024/03/04-fontan-sem-devushek.jpg'},
+                    ],
+        'wiki_link': 'https://ru.wikipedia.org/wiki/Уфа'
+        </header>
+        <div class="places">
+            <h2>{city['name']}</h2>
+            <ul>{places_html}</ul>
+            <a href="{city['wiki_link']}" target="_blank">Читай подробнее об этом городе на википедии</a>  
+        
+
+        <a href="/" class="back-btn">Назад</a>
+    </body>
+    </html>
+    """
+    return template
+
+
