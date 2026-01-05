@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Page Not Found</title>
+    <script>
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.pathname.slice(1).split('/').map(
+            function (s) { return decodeURIComponent(s); }
+          ).join('/');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.search
+          );
+        }
+      }(window.location))
+    </script>
+</head>
+<body>
+  <!-- Содержимое страницы 404 (можно оставить пустым) -->
+</body>
+</html>
