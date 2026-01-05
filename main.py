@@ -225,8 +225,8 @@ def neftyekamsk():
 @app.route('/beloretsk')
 def beloretsk():
     return render_template(generate_city_template('beloretsk'))
-
-@app.route('/shimbay')
+    
+@app.route('shimbay')
 def ishimbay():
     return render_template(generate_city_template('ishimbay'))
 
@@ -234,13 +234,11 @@ def ishimbay():
 def kumertau():
     return render_template(generate_city_template('kumertau'))
 
-@app.route('/mezygorye')
-def mezgorye():
-    return render_template(generate_city_template('mezygorye'))
 
 @app.route('/agidel')
 def agidel():
     return render_template(generate_city_template('agidel'))
+
 
 
 
