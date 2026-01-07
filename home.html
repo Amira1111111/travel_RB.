@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Путешествия по Башкортостану</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать в мир путешествий по Башкортостану!</h1>
+    </header>
+    <h1>Выберите город, чтобы увидеть интересные места!</h1>
+    <ul class="city-list">
+        {% for city_key, city in cities.items() %}
+            <li><a href="{{ url_for('city', city_key=city_key) }}">{{ city['name'] }}</a></li>
+        {% endfor %}
+        <li><a href="/mezygorye">Межгорье</a></li>  
+    </ul>
+    <footer>
+        <div class="footer-content">
+            <p>© {{ year }} Путешествия по Башкортостану.</p>
+            <div class="footer-links">
+                <a href="/about">О нас</a> | <a href="/contacts">Контакты</a> | <a href="/privacy">Политика конфиденциальности</a>
+            </div>
+            <div class="social-icons">
+                <a href="#" title="VK">📘</a> <a href="#" title="Telegram">💬</a> <a href="#" title="Instagram">📷</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
