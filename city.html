@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Путешествия по Башкортостану</title>
     <title>{{ city_name }}</title> 
+    <title>{{ city['name'] }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <body>
     <header>
         <h1>Добро пожаловать в {{ city_name }}!</h1>
@@ -14,37 +16,20 @@
         <h1>Добро пожаловать в Башкортостан! 🌄</h1>
         <p>Откройте красоту регионов, городов и маршрутов.</p>
     </header>
-
-
+         <ul>
+            {% for place in city['places'] %}
+                <li><img src="{{ place['image'] }}" alt="{{ place['name'] }}" style="width:200px;"> {{ place['name'] }}</li>
+            {% endfor %}
+        </ul>
+    <div class="places">
+        <h2>{{ city['name'] }}</h2>
+       
+        <a href="{{ city['wiki_link'] }}" target="_blank">Читай подробнее об этом городе на википедии</a>  
+    </div>
+    <a href="/" class="back-btn">Назад</a>
     </body>
 
 </html>
 
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ city_data['name'] }} - Путешествия по Башкортостану</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <header>
-        <h1>{{ city_data['name'] }}</h1>
-    </header>
-    <main>
-        <h2>Интересные места:</h2>
-        <ul>
-            {% for place in city_data['places'] %}
-                <li>
-                    <img src="{{ place['image'] }}" alt="{{ place['name'] }}" width="200">
-                    <p>{{ place['name'] }}</p>
-                </li>
-            {% endfor %}
-        </ul>
-    </main>
-    <footer>
-        <p>© {{ year }} Путешествия по Башкортостану</p>
-    </footer>
-</body>
-</html>
+
