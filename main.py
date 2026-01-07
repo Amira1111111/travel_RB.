@@ -198,9 +198,9 @@ def generate_city_template(city_key):
 
 
 
-@app.route('/travel_RB./ufa')
+@app.route('/ufa')
 def ufa():
-    return render_template(generate_city_template('ufa'))
+    return render_template(generate_city_template('travel_RB./ufa'))
 
 @app.route('/durtuli')
 def durtuli():
@@ -238,6 +238,7 @@ def kumertau():
 @app.route('/agidel')
 def agidel():
     return render_template(generate_city_template('agidel'))
+
 
 
 
