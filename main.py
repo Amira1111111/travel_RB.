@@ -136,7 +136,7 @@ def home():
         </header>
         <h1>Выберите город, чтобы увидеть интересные места!</h1>
         <ul class="city-list">
-            <li><a href="ufa">Уфа</a></li>
+            <li><a href="ufa.html">Уфа</a></li>
             <li><a href="durtuli">Дюртюли</a></li>
             <li><a href="sterlitamak">Стерлитамак</a></li>
             <li><a href="salavat">Салават</a></li>
@@ -238,6 +238,7 @@ def kumertau():
 @app.route('/agidel')
 def agidel():
     return render_template(generate_city_template('agidel'))
+
 
 
 
