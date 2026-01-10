@@ -137,28 +137,27 @@ def home():
         <h1>Выберите город, чтобы увидеть интересные места!</h1>
         <ul class="city-list">
                     <li><a href="/ufa.html">Уфа</a></li>
-        <li><a href="/sterlitamak.html">Стерлитамак</a></li>
-        <li><a href="/salavat.html">Салават</a></li>
-        <li><a href="/neftekamsk.html">Нефтекамск</a></li>
-        <li><a href="/oktyabrsky.html">Октябрьский</a></li>
-        <li><a href="/tuimazy.html">Туймазы</a></li>
-        <li><a href="/beloretsk.html">Белорецк</a></li>
-        <li><a href="/ishimbay.html">Ишимбай</a></li>
-        <li><a href="/sibay.html">Сибай</a></li>
-        <li><a href="/kumertau.html">Кумертау</a></li>
-        <li><a href="/belebey.html">Белебей</a></li>
-        <li><a href="/meleuz.html">Мелеуз</a></li>
-        <li><a href="/birsk.html">Бирск</a></li>
-        <li><a href="/uchaly.html">Учалы</a></li>
-        <li><a href="/blagovechensk.html">Благовещенск</a></li>
-        <li><a href="/dyurtyuli.html">Дюртюли</a></li>
-        <li><a href="/yanaul.html">Янаул</a></li>
-        <li><a href="/davlekanovo.html">Давлеканово</a></li>
-        <li><a href="/baymak.html">Баймак</a></li>
-        <li><a href="/meshgore.html">Межгорье</a></li>
-        <li><a href="/agidel.html">Агидель</a></li>
+        <li><a href="sterlitamak.html">Стерлитамак</a></li>
+        <li><a href="salavat.html">Салават</a></li>
+        <li><a href="neftekamsk.html">Нефтекамск</a></li>
+        <li><a href="oktyabrsky.html">Октябрьский</a></li>
+        <li><a href="tuimazy.html">Туймазы</a></li>
+        <li><a href="beloretsk.html">Белорецк</a></li>
+        <li><a href="ishimbay.html">Ишимбай</a></li>
+        <li><a href="sibay.html">Сибай</a></li>
+        <li><a href="kumertau.html">Кумертау</a></li>
+        <li><a href="belebey.html">Белебей</a></li>
+        <li><a href="meleuz.html">Мелеуз</a></li>
+        <li><a href="birsk.html">Бирск</a></li>
+        <li><a href="uchaly.html">Учалы</a></li>
+        <li><a href="blagovechensk.html">Благовещенск</a></li>
+        <li><a href="dyurtyuli.html">Дюртюли</a></li>
+        <li><a href="yanaul.html">Янаул</a></li>
+        <li><a href="davlekanovo.html">Давлеканово</a></li>
+        <li><a href="baymak.html">Баймак</a></li>
+        <li><a href="meshgore.html">Межгорье</a></li>
+        <li><a href="agidel.html">Агидель</a></li>
         </ul>
-
         <footer>
             <div class="footer-content">
                 <p>&copy; {{ year }} Путешествия по Башкортостану.</p>
@@ -248,6 +247,7 @@ def kumertau():
 @app.route('/agidel')
 def agidel():
     return render_template(generate_city_template('agidel'))
+
 
 
 
