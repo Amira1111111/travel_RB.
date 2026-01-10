@@ -26,26 +26,15 @@
             position: relative;
         }
 
-        /* Убрал сотовый фон с хедера - убрал класс honeycomb-bg и его стили */
-        
-        /* Шапка с градиентом БЕЗ ТОЧЕК */
+        /* Шапка с градиентом - ПРОСТАЯ, БЕЗ ВОЛН */
         header {
             background: linear-gradient(135deg, #1e90ff 0%, #00b894 100%);
-            padding: 40px 30px 30px;
+            padding: 50px 30px 40px;
             color: white;
             position: relative;
             text-align: center;
             width: 100%;
-        }
-
-        header::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 C30,20 70,20 100,0 L100,20 L0,20 Z' fill='white'/%3E%3C/svg%3E") center/100% 100%;
+            /* Убрал все псевдоэлементы с волнами */
         }
 
         /* Кнопка "На главную" - В ЛЕВОМ ВЕРХНЕМ УГЛУ */
@@ -76,12 +65,11 @@
 
         h1 {
             font-size: 3em;
-            margin: 10px 0;
+            margin: 20px 0 10px;
             color: white;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             position: relative;
             z-index: 2;
-            padding-top: 20px;
         }
 
         .subtitle {
@@ -93,7 +81,7 @@
             margin-bottom: 10px;
         }
 
-        /* Основной контент - РАСТЯНУТ */
+        /* Основной контент */
         .content {
             padding: 40px 30px;
             background: linear-gradient(to bottom, #ffffff 0%, #f8fdff 100%);
@@ -113,7 +101,7 @@
             margin-right: auto;
         }
 
-        /* Карточки достопримечательностей - ЦЕНТРИРОВАНЫ */
+        /* Карточки достопримечательностей */
         .places-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -172,7 +160,7 @@
             text-align: center;
         }
 
-        /* Кнопка Википедии - ЦЕНТРИРОВАНА */
+        /* Кнопка Википедии */
         .wiki-btn-container {
             text-align: center;
             max-width: 1200px;
@@ -220,25 +208,15 @@
             left: 100%;
         }
 
-        /* Подвал с сотами - РАСТЯНУТ */
+        /* Подвал - ПРОСТОЙ, БЕЗ ВОЛН */
         footer {
             background: linear-gradient(135deg, #1c5f7a 0%, #2a9d8f 100%);
             color: white;
             padding: 40px 30px;
             text-align: center;
-            position: relative;
             width: 100%;
             margin-top: 0;
-        }
-
-        footer::before {
-            content: "";
-            position: absolute;
-            top: -15px;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background: url("data:image/svg+xml,%3Csvg width='120' height='30' viewBox='0 0 120 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,30 C40,15 80,15 120,30 L120,30 L0,30 Z' fill='%231c5f7a'/%3E%3C/svg%3E") center/100% 100%;
+            /* Убрал все псевдоэлементы с волнами */
         }
 
         footer p {
@@ -258,19 +236,17 @@
             color: #a3e4d7;
         }
 
-        /* Декоративные соты в углах (убрал их с хедера) */
+        /* Декоративные соты в углах - ОСТАВИЛ ТОЛЬКО ВНИЗУ */
         .honeycomb-corner {
             position: absolute;
-            width: 80px;
-            height: 80px;
-            opacity: 0.1;
+            width: 60px;
+            height: 60px;
+            opacity: 0.15;
             z-index: 0;
         }
 
-        .hc-bl { bottom: 10px; left: 10px; transform: rotate(-90deg); }
-        .hc-br { bottom: 10px; right: 10px; transform: rotate(180deg); }
-
-        /* Убрал верхние соты (hc-tl и hc-tr) чтобы не мешали */
+        .hc-bl { bottom: 20px; left: 20px; transform: rotate(-90deg); }
+        .hc-br { bottom: 20px; right: 20px; transform: rotate(180deg); }
 
         /* Адаптивность */
         @media (max-width: 768px) {
@@ -282,12 +258,11 @@
             
             h1 {
                 font-size: 2.2em;
-                padding-top: 40px;
-                margin-top: 20px;
+                margin-top: 30px;
             }
             
             .content {
-                padding: 25px 15px;
+                padding: 30px 15px;
             }
             
             .back-link {
@@ -299,13 +274,27 @@
             
             .subtitle {
                 font-size: 1.1em;
-                margin-top: 20px;
+            }
+            
+            header {
+                padding: 40px 15px 30px;
+            }
+            
+            footer {
+                padding: 30px 15px;
+            }
+            
+            .honeycomb-corner {
+                width: 40px;
+                height: 40px;
+                bottom: 15px;
             }
         }
 
         @media (max-width: 480px) {
             h1 {
                 font-size: 1.8em;
+                margin-top: 40px;
             }
             
             h2 {
@@ -318,16 +307,22 @@
                 min-height: 60px;
             }
             
-            footer {
-                padding: 30px 15px;
+            .back-link {
+                top: 10px;
+                left: 10px;
+                padding: 8px 16px;
+                font-size: 0.85em;
+            }
+            
+            .wiki-btn {
+                padding: 15px 30px;
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Убрал верхние соты из хедера -->
-        
         <header>
             <!-- Кнопка теперь в левом верхнем углу -->
             <a href="index.html" class="back-link">← На главную</a>
@@ -366,7 +361,7 @@
             </div>
         </main>
         
-        <!-- Оставил соты только в подвале -->
+        <!-- Декоративные соты в углах подвала (по желанию) -->
         <div class="honeycomb-corner hc-bl">
             <svg viewBox="0 0 100 100">
                 <polygon points="50,5 90,30 90,70 50,95 10,70 10,30" 
@@ -382,7 +377,7 @@
         
         <footer>
             <p>© 2024 Путешествия по Башкортостану</p>
-            
+            <p>Сайт создан в образовательных целях</p>
             <p style="margin-top: 20px; font-size: 0.9em; color: #a3e4d7;">
                 Башкортостан — край тысячи рек и золотых сот
             </p>
