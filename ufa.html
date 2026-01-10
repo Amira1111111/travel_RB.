@@ -6,91 +6,356 @@
     <title>Уфа - Путешествия по Башкортостану</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Общие стили с пчелиными сотами */
+        body {
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0fff4 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 100, 0, 0.15);
+            position: relative;
+        }
+
+        /* Сотовый фон для заголовка */
+        .honeycomb-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .honeycomb-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(144, 238, 144, 0.3) 2px, transparent 2px),
+                radial-gradient(circle at 30% 50%, rgba(173, 216, 230, 0.3) 2px, transparent 2px),
+                radial-gradient(circle at 70% 80%, rgba(152, 251, 152, 0.3) 2px, transparent 2px);
+            background-size: 60px 60px;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        /* Шапка с градиентом и сотами */
+        header {
+            background: linear-gradient(135deg, #1e90ff 0%, #00b894 100%);
+            padding: 40px 30px 30px;
+            color: white;
+            position: relative;
+            text-align: center;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 C30,20 70,20 100,0 L100,20 L0,20 Z' fill='white'/%3E%3C/svg%3E") center/100% 100%;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: white;
+            color: #006400;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            border: 2px solid #1e90ff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .back-link:hover {
+            background: #006400;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 10px 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #e8ffe8;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Основной контент */
+        .content {
+            padding: 40px 30px;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8fdff 100%);
+        }
+
+        h2 {
+            color: #006400;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 3px dashed #00b894;
+        }
+
+        /* Карточки достопримечательностей */
         .places-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
         }
+
         .place {
-            background: white;
-            border-radius: 12px;
+            background: linear-gradient(145deg, #ffffff, #f0f8ff);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 8px 25px rgba(30, 144, 255, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #e0f7fa;
+            position: relative;
         }
+
+        .place::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #1e90ff, #00b894);
+        }
+
         .place:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(30, 144, 255, 0.25);
         }
+
         .place img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            transition: transform 0.5s;
         }
+
+        .place:hover img {
+            transform: scale(1.05);
+        }
+
         .place h3 {
             padding: 20px;
             color: #006400;
+            font-size: 1.4em;
+            margin: 0;
+            background: linear-gradient(to right, #f8fdff, #ffffff);
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
+
+        /* Кнопка Википедии */
         .wiki-btn {
-            display: inline-block;
-            background: #006400;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #1e90ff, #00b894);
             color: white;
-            padding: 15px 30px;
+            padding: 18px 40px;
             text-decoration: none;
-            border-radius: 8px;
-            margin-top: 20px;
-            transition: background 0.3s;
+            border-radius: 12px;
+            margin-top: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 6px 20px rgba(30, 144, 255, 0.3);
+            position: relative;
+            overflow: hidden;
         }
+
+        .wiki-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
         .wiki-btn:hover {
-            background: #004d00;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.4);
+            background: linear-gradient(135deg, #00b894, #1e90ff);
+        }
+
+        .wiki-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Подвал с сотами */
+        footer {
+            background: linear-gradient(135deg, #1c5f7a 0%, #2a9d8f 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: url("data:image/svg+xml,%3Csvg width='120' height='30' viewBox='0 0 120 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,30 C40,15 80,15 120,30 L120,30 L0,30 Z' fill='%231c5f7a'/%3E%3C/svg%3E") center/100% 100%;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 1.1em;
+            position: relative;
+            z-index: 2;
+        }
+
+        footer p:first-child {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #a3e4d7;
+        }
+
+        /* Декоративные соты в углах */
+        .honeycomb-corner {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hc-tl { top: 10px; left: 10px; }
+        .hc-tr { top: 10px; right: 10px; transform: rotate(90deg); }
+        .hc-bl { bottom: 10px; left: 10px; transform: rotate(-90deg); }
+        .hc-br { bottom: 10px; right: 10px; transform: rotate(180deg); }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .places-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <!-- Декоративные соты в углах -->
+        <div class="honeycomb-corner hc-tl">
+            <svg viewBox="0 0 100 100">
+                <polygon points="50,5 90,30 90,70 50,95 10,70 10,30" 
+                         fill="#00b894" stroke="#1e90ff" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="honeycomb-corner hc-tr">
+            <svg viewBox="0 0 100 100">
+                <polygon points="50,5 90,30 90,70 50,95 10,70 10,30" 
+                         fill="#00b894" stroke="#1e90ff" stroke-width="2"/>
+            </svg>
+        </div>
+        
+        <header class="honeycomb-bg">
             <a href="index.html" class="back-link">← На главную</a>
             <h1>Уфа</h1>
             <p class="subtitle">Столица Республики Башкортостан</p>
         </header>
         
         <main class="content">
-            <h2 style="color: #006400; margin-bottom: 20px; text-align: center;">
-                Достопримечательности Уфы
-            </h2>
+            <h2>Достопримечательности Уфы</h2>
             
             <div class="places-grid">
                 <div class="place">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/%D0%91%D0%B0%D1%88%D0%BA%D0%B8%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%BE%D0%BF%D0%B5%D1%80%D1%8B_%D0%B8_%D0%B1%D0%B0%D0%BB%D0%B5%D1%82%D0%B0.JPG" alt="Театр оперы и балета">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/%D0%91%D0%B0%D1%88%D0%BA%D0%B8%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%BE%D0%BF%D0%B5%D1%80%D1%8B_%D0%B8_%D0%B1%D0%B0%D0%BB%D0%B5%D1%82%D0%B0.JPG" 
+                         alt="Башкирский театр оперы и балета">
                     <h3>Башкирский театр оперы и балета</h3>
                 </div>
                 
                 <div class="place">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/%D0%9F%D0%B0%D1%80%D0%BA_%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B_%28%D0%B0%D0%BB%D0%BB%D0%B5%D1%8F%29.jpg" alt="Парк Победы">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/%D0%9F%D0%B0%D1%80%D0%BA_%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B_%28%D0%B0%D0%BB%D0%BB%D0%B5%D1%8F%29.jpg" 
+                         alt="Парк Победы">
                     <h3>Парк Победы</h3>
                 </div>
                 
                 <div class="place">
-                    <img src="https://ufa.richotels.ru/97.jpg" alt="Площадь Салавата Юлаева">
+                    <img src="https://ufa.richotels.ru/97.jpg" 
+                         alt="Площадь Салавата Юлаева">
                     <h3>Площадь Салавата Юлаева</h3>
                 </div>
             </div>
             
             <div style="text-align: center;">
                 <a href="https://ru.wikipedia.org/wiki/Уфа" target="_blank" class="wiki-btn">
-                    📚 Читать об Уфе на Википедии
+                    <span style="font-size: 1.3em;">📚</span> Читать об Уфе на Википедии
                 </a>
             </div>
         </main>
         
+        <!-- Декоративные соты в углах подвала -->
+        <div class="honeycomb-corner hc-bl">
+            <svg viewBox="0 0 100 100">
+                <polygon points="50,5 90,30 90,70 50,95 10,70 10,30" 
+                         fill="#00b894" stroke="#1e90ff" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="honeycomb-corner hc-br">
+            <svg viewBox="0 0 100 100">
+                <polygon points="50,5 90,30 90,70 50,95 10,70 10,30" 
+                         fill="#00b894" stroke="#1e90ff" stroke-width="2"/>
+            </svg>
+        </div>
+        
         <footer>
             <p>© 2024 Путешествия по Башкортостану</p>
             <p>Сайт создан в образовательных целях</p>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #a3e4d7;">
+                Башкортостан — край тысячи рек и золотых сот
+            </p>
         </footer>
     </div>
 </body>
 </html>
-
-
-
-
