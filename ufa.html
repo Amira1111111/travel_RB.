@@ -6,8 +6,8 @@
     <title>Уфа - Путешествия по Башкортостану</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* ОСНОВНЫЕ СТИЛИ */
-        * {
+        
+         {
             box-sizing: border-box;
         }
         
@@ -31,7 +31,6 @@
             max-width: 100%;
         }
 
-        /* ШАПКА - ОПТИМИЗИРОВАНА ДЛЯ МОБИЛЬНЫХ */
         header {
             background: linear-gradient(135deg, #1e90ff 0%, #00b894 100%);
             padding: 70px 20px 30px;
@@ -88,7 +87,6 @@
             line-height: 1.4;
         }
 
-        /* ОСНОВНОЙ КОНТЕНТ - АДАПТИВНЫЙ */
         .content {
             padding: clamp(20px, 5vw, 40px) clamp(15px, 4vw, 30px);
             background: linear-gradient(to bottom, #ffffff 0%, #f8fdff 100%);
@@ -107,7 +105,6 @@
             line-height: 1.3;
         }
 
-        /* КАРТОЧКИ - АДАПТИВНАЯ СЕТКА */
         .places-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
@@ -171,8 +168,7 @@
             word-wrap: break-word;
             hyphens: auto;
         }
-
-        /* КНОПКА ВИКИПЕДИИ - АДАПТИВНАЯ */
+        
         .wiki-btn-container {
             text-align: center;
             margin: 40px auto;
@@ -224,7 +220,6 @@
             left: 100%;
         }
 
-        /* ПОДВАЛ - АДАПТИВНЫЙ */
         footer {
             background: linear-gradient(135deg, #1c5f7a 0%, #2a9d8f 100%);
             color: white;
@@ -251,9 +246,7 @@
             color: #a3e4d7;
         }
 
-        /* МЕДИА-ЗАПРОСЫ ДЛЯ РАЗНЫХ УСТРОЙСТВ */
-        
-        /* Большие телефоны и маленькие планшеты (480px - 767px) */
+
         @media (min-width: 480px) and (max-width: 767px) {
             header {
                 padding: 80px 25px 35px;
@@ -271,7 +264,6 @@
             }
         }
         
-        /* Планшеты (768px - 1023px) */
         @media (min-width: 768px) and (max-width: 1023px) {
             header {
                 padding: 90px 40px 40px;
@@ -298,7 +290,6 @@
             }
         }
         
-        /* Десктопы (1024px и больше) */
         @media (min-width: 1024px) {
             .container {
                 max-width: 1400px;
@@ -324,8 +315,7 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-        
-        /* ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 360px) */
+
         @media (max-width: 360px) {
             header {
                 padding: 65px 10px 25px;
@@ -371,7 +361,6 @@
             }
         }
         
-        /* ЛАНДШАФТНАЯ ОРИЕНТАЦИЯ */
         @media (max-height: 500px) and (orientation: landscape) {
             header {
                 padding: 60px 20px 20px;
@@ -403,7 +392,6 @@
             }
         }
         
-        /* ТЕМНАЯ ТЕМА (если пользователь предпочитает) */
         @media (prefers-color-scheme: dark) {
             body {
                 background: linear-gradient(135deg, #0a1929 0%, #0d2b1a 100%);
@@ -431,8 +419,7 @@
                 color: #90ee90;
             }
         }
-        
-        /* УЛУЧШЕНИЯ ДЛЯ КАСАНИЯ (touch-friendly) */
+    
         @media (hover: none) {
             .back-link:hover,
             .place:hover,
@@ -451,7 +438,6 @@
             }
         }
         
-        /* БОЛЬШИЕ ЭКРАНЫ (4K и больше) */
         @media (min-width: 2000px) {
             .container {
                 max-width: 1800px;
@@ -506,6 +492,30 @@
                     <h3>Площадь Салавата Юлаева</h3>
                 </div>
             </div>
+           
+                 <div class="place">
+                    <img src=" https://mega.ru/upload/medialibrary/405/40550217110e77448f078bb2a5a562da.jpg" 
+                         alt="Парк mega"
+                         loading="lazy">
+                    <h3>Парк mega</h3>
+                </div>
+            </div>
+                <div class="place">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/81/fc/bf/caption.jpg?w=1400&h=-1&s=1" 
+                         alt="Аллея современной скульптуры ArtTerria"
+                         loading="lazy">
+                    <h3>Аллея современной скульптуры ArtTerria</h3>
+                </div>
+            </div>
+                <div class="place">
+                    <img src="https://museum-ufa.ru/wp-content/uploads/2024/03/04-fontan-sem-devushek.jpg" 
+                         alt="Театральный сквер, фонтан «Семь девушек»"
+                         loading="lazy">
+                    <h3>Театральный сквер, фонтан «Семь девушек»</h3>
+                </div>
+            </div>
+    
+            
             
             <div class="wiki-btn-container">
                 <a href="https://ru.wikipedia.org/wiki/Уфа" target="_blank" rel="noopener" class="wiki-btn">
@@ -516,7 +526,6 @@
         
         <footer>
             <p>© 2024 Путешествия по Башкортостану</p>
-            <p>Сайт создан в образовательных целях</p>
             <p style="margin-top: 20px; font-size: 0.9em; color: #a3e4d7;">
                 Башкортостан — край тысячи рек и золотых сот
             </p>
