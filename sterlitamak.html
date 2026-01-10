@@ -2,11 +2,413 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Стерлитамак - Путешествия по Башкортостану</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cities-style.css">
-    <link rel="stylesheet" href="css/mobile.css">
+    <style>
+        /* ВСТАВЬТЕ ЗДЕСЬ ВЕСЬ CSS КОД ИЗ ВЫШЕПРИВЕДЕННОГО ФАЙЛА salavat.html */
+        /* Просто скопируйте все из тега <style> выше */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0fff4 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background: white;
+            margin: 0 auto;
+            position: relative;
+            max-width: 100%;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e90ff 0%, #00b894 100%);
+            padding: 70px 20px 30px;
+            color: white;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: #006400;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid #1e90ff;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .back-link:hover {
+            background: #006400;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: clamp(1.8em, 6vw, 3em);
+            margin: 10px 0 5px;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            line-height: 1.2;
+            padding: 0 10px;
+            word-wrap: break-word;
+        }
+
+        .subtitle {
+            font-size: clamp(1em, 4vw, 1.3em);
+            color: #e8ffe8;
+            opacity: 0.95;
+            margin: 0;
+            padding: 0 15px;
+            line-height: 1.4;
+        }
+
+        .content {
+            padding: clamp(20px, 5vw, 40px) clamp(15px, 4vw, 30px);
+            background: linear-gradient(to bottom, #ffffff 0%, #f8fdff 100%);
+            min-height: 60vh;
+            width: 100%;
+        }
+
+        h2 {
+            color: #006400;
+            font-size: clamp(1.5em, 5vw, 2.2em);
+            margin: 0 auto 30px;
+            text-align: center;
+            padding: 0 10px 15px;
+            border-bottom: 3px dashed #00b894;
+            max-width: 100%;
+            line-height: 1.3;
+        }
+
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: clamp(20px, 4vw, 30px);
+            margin: 30px auto;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 5px;
+        }
+
+        .place {
+            background: linear-gradient(145deg, #ffffff, #f0f8ff);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.15);
+            transition: all 0.3s ease;
+            border: 1px solid #e0f7fa;
+            position: relative;
+            width: 100%;
+        }
+
+        .place::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #1e90ff, #00b894);
+        }
+
+        .place:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.25);
+        }
+
+        .place img {
+            width: 100%;
+            height: clamp(180px, 40vw, 220px);
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .place:hover img {
+            transform: scale(1.05);
+        }
+
+        .place h3 {
+            padding: clamp(15px, 4vw, 20px);
+            color: #006400;
+            font-size: clamp(1.2em, 4vw, 1.4em);
+            margin: 0;
+            background: linear-gradient(to right, #f8fdff, #ffffff);
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.4;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .wiki-btn-container {
+            text-align: center;
+            margin: 40px auto;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 15px;
+        }
+
+        .wiki-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #1e90ff, #00b894);
+            color: white;
+            padding: clamp(15px, 4vw, 18px) clamp(30px, 6vw, 40px);
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: clamp(1em, 3.5vw, 1.1em);
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .wiki-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .wiki-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.4);
+            background: linear-gradient(135deg, #00b894, #1e90ff);
+        }
+
+        .wiki-btn:hover::before {
+            left: 100%;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1c5f7a 0%, #2a9d8f 100%);
+            color: white;
+            padding: clamp(25px, 6vw, 40px) clamp(15px, 4vw, 30px);
+            text-align: center;
+            width: 100%;
+            margin-top: 0;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: clamp(0.9em, 3.5vw, 1.1em);
+            line-height: 1.5;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 10px;
+        }
+
+        footer p:first-child {
+            font-size: clamp(1em, 4vw, 1.3em);
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #a3e4d7;
+        }
+
+        @media (min-width: 480px) and (max-width: 767px) {
+            header {
+                padding: 80px 25px 35px;
+            }
+            
+            .back-link {
+                top: 20px;
+                left: 20px;
+                padding: 12px 22px;
+                font-size: 15px;
+            }
+            
+            .places-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1023px) {
+            header {
+                padding: 90px 40px 40px;
+            }
+            
+            .back-link {
+                top: 25px;
+                left: 30px;
+                padding: 14px 25px;
+                font-size: 16px;
+            }
+            
+            .content {
+                padding: 35px 40px;
+            }
+            
+            .places-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+            }
+            
+            .wiki-btn {
+                max-width: 350px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+            
+            header {
+                padding: 100px 50px 50px;
+            }
+            
+            .back-link {
+                top: 30px;
+                left: 40px;
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+            
+            .content {
+                padding: 50px;
+            }
+            
+            .places-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 360px) {
+            header {
+                padding: 65px 10px 25px;
+            }
+            
+            .back-link {
+                top: 10px;
+                left: 10px;
+                padding: 10px 15px;
+                font-size: 13px;
+            }
+            
+            h1 {
+                font-size: 1.6em;
+            }
+            
+            .subtitle {
+                font-size: 0.95em;
+            }
+            
+            .content {
+                padding: 15px 10px;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+                margin-bottom: 20px;
+            }
+            
+            .place h3 {
+                min-height: 60px;
+                font-size: 1.1em;
+                padding: 12px;
+            }
+            
+            .place img {
+                height: 160px;
+            }
+            
+            .wiki-btn {
+                padding: 14px 25px;
+                font-size: 0.95em;
+            }
+        }
+        
+        @media (max-height: 500px) and (orientation: landscape) {
+            header {
+                padding: 60px 20px 20px;
+            }
+            
+            .back-link {
+                top: 10px;
+                left: 15px;
+                padding: 10px 18px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                margin: 5px 0;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+            }
+            
+            .place img {
+                height: 150px;
+            }
+            
+            .place h3 {
+                min-height: 50px;
+                padding: 10px;
+                font-size: 1.1em;
+            }
+        }
+        
+        @media (hover: none) {
+            .back-link:hover,
+            .place:hover,
+            .wiki-btn:hover {
+                transform: none;
+            }
+            
+            .back-link:active,
+            .place:active,
+            .wiki-btn:active {
+                transform: scale(0.98);
+            }
+            
+            .place:hover img {
+                transform: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -17,29 +419,24 @@
         </header>
         
         <main class="content">
-            <div class="city-fact">
-                <h4>📌 Интересный факт</h4>
-                <p>Стерлитамак — второй по численности населения город Башкортостана и крупнейший центр химической промышленности.</p>
-            </div>
-            
-            <h2 class="city-title">Достопримечательности Стерлитамака</h2>
+            <h2>Достопримечательности Стерлитамака</h2>
             
             <div class="places-grid">
-                <div class="place-card">
+                <div class="place">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sterlitamak_shikhany.jpg/1280px-Sterlitamak_shikhany.jpg" 
                          alt="Стерлитамакские шиханы"
                          loading="lazy">
                     <h3>Стерлитамакские шиханы</h3>
                 </div>
                 
-                <div class="place-card">
+                <div class="place">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Sterlitamak_drama_theater.jpg/1280px-Sterlitamak_drama_theater.jpg" 
                          alt="Драматический театр"
                          loading="lazy">
                     <h3>Драматический театр</h3>
                 </div>
                 
-                <div class="place-card">
+                <div class="place">
                     <img src="https://sterlitamak.ru/upload/iblock/7f9/7f9c8a8c8f8e7d6c5b4a3b2c1d0e9f8a.jpg" 
                          alt="Парк Кирова"
                          loading="lazy">
@@ -48,22 +445,18 @@
             </div>
             
             <div class="wiki-btn-container">
-                <a href="https://ru.wikipedia.org/wiki/Стерлитамак" target="_blank" class="wiki-btn">
+                <a href="https://ru.wikipedia.org/wiki/Стерлитамак" target="_blank" rel="noopener" class="wiki-btn">
                     <span style="font-size: 1.3em;">📚</span> Читать о Стерлитамаке на Википедии
                 </a>
             </div>
         </main>
         
         <footer>
-            <div class="footer-content">
-                <p>© 2024 Путешествия по Башкортостану</p>
-                <p>Сайт создан в образовательных целях</p>
-                <div class="footer-links">
-                    <a href="index.html">Главная</a>
-                    <a href="ufa.html">Уфа</a>
-                    <a href="salavat.html">Салават</a>
-                </div>
-            </div>
+            <p>© 2024 Путешествия по Башкортостану</p>
+            <p>Сайт создан в образовательных целях</p>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #a3e4d7;">
+                Башкортостан — край тысячи рек и золотых сот
+            </p>
         </footer>
     </div>
 </body>
