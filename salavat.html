@@ -4,9 +4,249 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Салават - Путешествия по Башкортостану</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cities-style.css">
-    <link rel="stylesheet" href="css/mobile.css">
+    <style>
+        /* ОСНОВНЫЕ СТИЛИ */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            margin: 0;
+            background-image: url('https://s.pfst.net/2012.08/14313438806482937b2feee2368f065b46b3dc05986_b.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(173, 216, 230, 0.85);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+            width: calc(100% - 40px);
+        }
+        
+        /* ШАПКА */
+        header {
+            background: linear-gradient(#6bd2f4 0%, #017df8 100%); 
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        /* КНОПКА НА ГЛАВНУЮ */
+        .back-link {
+            display: inline-block;
+            background: white;
+            color: #006400;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid #1e90ff;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .back-link:hover {
+            background: #006400;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* ОСНОВНОЙ КОНТЕНТ */
+        .content {
+            padding: 20px;
+        }
+        
+        .city-fact {
+            background: rgba(107, 210, 244, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #017df8;
+        }
+        
+        .city-fact h4 {
+            color: #017df8;
+            margin-bottom: 10px;
+        }
+        
+        .city-title {
+            color: #006400;
+            font-size: 2em;
+            text-align: center;
+            margin: 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #00b894;
+        }
+        
+        /* СЕТКА ДОСТОПРИМЕЧАТЕЛЬНОСТЕЙ */
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .place-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .place-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .place-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .place-card h3 {
+            padding: 20px;
+            color: #006400;
+            text-align: center;
+            margin: 0;
+        }
+        
+        /* КНОПКА ВИКИПЕДИИ */
+        .wiki-btn-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .wiki-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e90ff, #00b894);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+        }
+        
+        .wiki-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(30, 144, 255, 0.4);
+        }
+        
+        /* ПОДВАЛ */
+        footer {
+            background: linear-gradient(to right, #87CEEB, #4682B4);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 10px;
+            border-top: 3px solid #FFD700;
+        }
+        
+        .footer-content p {
+            margin: 10px 0;
+        }
+        
+        .footer-links {
+            margin: 15px 0;
+        }
+        
+        .footer-links a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 768px) {
+            .container {
+                width: calc(100% - 20px);
+                padding: 15px;
+                margin: 10px auto;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                margin-top: 40px;
+            }
+            
+            .back-link {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin: 0 auto 20px;
+                display: inline-block;
+            }
+            
+            .places-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .place-card img {
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .city-title {
+                font-size: 1.5em;
+            }
+            
+            .wiki-btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -57,7 +297,6 @@
         <footer>
             <div class="footer-content">
                 <p>© 2024 Путешествия по Башкортостану</p>
-                <p>Сайт создан в образовательных целях</p>
                 <div class="footer-links">
                     <a href="index.html">Главная</a>
                     <a href="ufa.html">Уфа</a>
